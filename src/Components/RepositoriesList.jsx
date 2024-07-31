@@ -102,7 +102,8 @@ const RepositoriesList = () => {
         filteredRepos.map((repo) => (
           <div key={repo.id} className="bg-white p-6 border-gray-200 border-b border-1 mb-4">
             <h3 className="text-xl font-semibold mb-2">
-              <a href={repo.html_url} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+              <a href={repo.html_url} target="_blank" rel="noopener noreferrer" 
+              className="text-blue-600 hover:underline">
                 {repo.name}
               </a>
             </h3>

@@ -28,7 +28,6 @@ const Following = () => {
         }
         const followingData = await response.json();
 
-        // Fetch detailed information for each user
         const followingWithDetails = await Promise.all(
           followingData.map(async (user) => {
             const details = await fetchUserDetails(user.url);
@@ -60,7 +59,7 @@ const Following = () => {
       <h1 className="text-3xl font-bold mb-4">Following</h1>
       <div className="grid grid-cols-1 gap-6">
         {following.map((user) => (
-          <div key={user.id} className="bg-white border border-gray-200 border-b-1 p-4 flex items-center justify-between">
+          <div key={user.id} className="bg-white border-b border-gray-200 p-4 flex items-center justify-between">
             <div className="flex items-center">
               <img
                 src={user.avatar_url}
@@ -69,8 +68,8 @@ const Following = () => {
               />
               <div>
                 <h2 className="text-xl font-semibold">{user.login}</h2>
-                <p className="text-sm text-gray-500">Bio: {user.bio || 'No bio available'}</p>
-                <p className="text-sm text-gray-500">Location: {user.location || 'No location available'}</p>
+                <p className="text-sm text-gray-500">Bio: {user.bio}</p>
+                <p className="text-sm text-gray-500">Location: {user.location}</p>
               </div>
             </div>
             <a href={user.html_url} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">

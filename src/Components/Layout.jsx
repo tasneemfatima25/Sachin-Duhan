@@ -44,7 +44,6 @@ const Layout = () => {
 
         {/* MainContent */}
         <div className="flex-1 bg-white p-4">
-            <Outlet /> {/* This will render the matched route component */}
         </div>
         
     </div>

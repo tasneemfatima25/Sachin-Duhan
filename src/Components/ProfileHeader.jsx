@@ -46,7 +46,7 @@ const ProfileHeader = ({ user }) => {
             <FaUserFriends className="mr-1" /> {user.following} Following
           </Link>
         </div>
-        <div className="mt-4 flex flex-row justify-start space-y-1 md:space-y-0 md:space-x-4">
+        <div className="mt-4 flex flex-row justify-start space-y-1 lg:space-x-4 space-x-2 md:space-x-4">
           <a href="https://github.com/Signzy" target="_blank" rel="noopener noreferrer" className="hover:text-blue-500 hover:underline text-black flex items-center">
             @Signzy
           </a>

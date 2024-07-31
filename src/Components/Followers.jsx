@@ -1,4 +1,3 @@
-// src/Components/Followers.jsx
 import React, { useEffect, useState } from 'react';
 
 const Followers = () => {
@@ -29,7 +28,6 @@ const Followers = () => {
         }
         const followersData = await response.json();
 
-        // Fetch detailed information for each follower
         const followersWithDetails = await Promise.all(
           followersData.map(async (follower) => {
             const details = await fetchFollowerDetails(follower.url);
@@ -58,10 +56,9 @@ const Followers = () => {
 
   return (
     <div className="p-6">
-      <h1 className="text-3xl font-bold mb-4">Followers</h1>
       <div className="grid grid-cols-1 gap-6">
         {followers.map((follower) => (
-          <div key={follower.id} className="bg-white border border-gray-200 border-b-1 p-4 flex items-center justify-between">
+          <div key={follower.id} className="bg-white border-b border-gray-200 shadow-sm p-4 flex items-center justify-between">
             <div className="flex items-center">
               <img
                 src={follower.avatar_url}
