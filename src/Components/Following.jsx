@@ -56,7 +56,6 @@ const Following = () => {
 
   return (
     <div className="p-6">
-      <h1 className="text-3xl font-bold mb-4">Following</h1>
       <div className="grid grid-cols-1 gap-6">
         {following.map((user) => (
           <div key={user.id} className="bg-white border-b border-gray-200 p-4 flex items-center justify-between">
@@ -68,14 +67,14 @@ const Following = () => {
               />
               <div>
                 <h2 className="text-xl font-semibold">{user.login}</h2>
-                <p className="text-sm text-gray-500">Bio: {user.bio}</p>
-                <p className="text-sm text-gray-500">Location: {user.location}</p>
+                <p className="text-sm text-gray-500">{user.bio}</p>
+                <p className="text-sm text-gray-500">{user.location}</p>
               </div>
             </div>
-            <a href={user.html_url} target="_blank" rel="noopener noreferrer" 
+            {/* <a href={user.html_url} target="_blank" rel="noopener noreferrer" 
             className="text-black text-sm bg-gray-100 hover:bg-gray-200 rounded-lg border hover:border-gray-300 border-gray-200 border-1 py-1 px-4">
               View Profile
-            </a>
+            </a> */}
           </div>
         ))}
       </div>

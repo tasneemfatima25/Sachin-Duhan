@@ -44,6 +44,7 @@ const Layout = () => {
 
         {/* MainContent */}
         <div className="flex-1 bg-white p-4">
+          <MainContent />
         </div>
         
     </div>

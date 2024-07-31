@@ -67,8 +67,9 @@ const MainPage = () => {
             <Link to="/overview" className="text-black hover:text-black hover:bg-gray-100 p-2 rounded-full flex items-center" aria-label="Overview">
               Overview
             </Link>
-            <Link to="/repositories" className="text-black hover:text-black hover:bg-gray-100 p-2 rounded-full flex items-center" aria-label="Repositories">
-              Repositories {repos.length > 0 && <span className="bg-gray-100 rounded-full p-1">{repos.length}</span>}
+            <Link to="/repositories" className="text-black py-2 hover:text-black hover:bg-gray-100 p-2 rounded-full flex items-center" aria-label="Repositories">
+              Repositories 
+              {repos.length > 0 && <p className="bg-gray-100 rounded-full p-1">{repos.length}</p>}
             </Link>
             <Link to="/projects" className="text-black hover:text-black hover:bg-gray-100 p-2 rounded-full flex items-center" aria-label="Projects">
               Projects
