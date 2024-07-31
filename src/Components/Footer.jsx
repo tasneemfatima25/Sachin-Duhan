@@ -54,16 +54,17 @@ const Footer = () => {
               className="font-semibold text-lg cursor-pointer hover:bg-gray-200 px-4 py-2"
               to="/repositories"
             >
-              Repositories {repos.length > 0 && <span> {(repos.length)}</span>}
+              Repositories {repos.length > 0 && <span className="20"> {(repos.length)}</span>}
             </Link>
           </div>
 
           {/* Organizations */}
           <div className="mb-4 md:mb-0">
             <Link to="/organisations"
-              className="font-semibold text-lg cursor-pointer hover:bg-gray-200 px-4 py-2"
+              className="font-semibold text-lg cursor-pointer px-4 py-2"
+            
             >
-              Organizations {orgs.length > 0 && <span>{(orgs.length)}</span>}
+              Organizations {orgs.length > 0 && <span className="ml-20">{(orgs.length)}</span>}
             </Link>
           </div>
 
@@ -73,7 +74,7 @@ const Footer = () => {
               className="font-semibold text-lg cursor-pointer hover:bg-gray-200 px-4 py-2"
               to="/stars"
             >
-              Starred {stars.length > 0 && <span>{(stars.length)}</span>}
+              Starred {stars.length > 0 && <span className="ml-20">{(stars.length)}</span>}
             </Link>
           </div>
         </div>
