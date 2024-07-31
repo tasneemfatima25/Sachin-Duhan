@@ -10,6 +10,7 @@ import Layout from './Components/Layout';
 import OrganisationList from './Components/OrganisationList';
 import Followers from './Components/Followers';
 import Following from './Components/Following';
+import Achievement from './Components/Achievement';
 
 
 
@@ -27,6 +28,7 @@ const App = () => {
           <Route path="organizations" element={< OrganisationList />} />
           <Route path="/followers" element={<Followers />} />
           <Route path="/following" element={<Following />} />
+          <Route path="/achievement" element={<Achievement />} />
         </Route>
       </Routes>
     </>

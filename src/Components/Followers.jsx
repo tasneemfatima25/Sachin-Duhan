@@ -71,7 +71,9 @@ const Followers = () => {
                 <p className="text-xs text-gray-500">{follower.location}</p>
               </div>
             </div>
-            <a href={`https://github.com/${follower.login}`} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
+            <a href={`https://github.com/${follower.login}`} target="_blank"
+             rel="noopener noreferrer" 
+             className="text-black text-sm bg-gray-100 hover:bg-gray-200 rounded-lg border hover:border-gray-300 border-gray-200 border-1 py-1 px-4">
               Follow
             </a>
           </div>

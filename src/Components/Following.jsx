@@ -72,7 +72,8 @@ const Following = () => {
                 <p className="text-sm text-gray-500">Location: {user.location}</p>
               </div>
             </div>
-            <a href={user.html_url} target="_blank" rel="noopener noreferrer" className="text-blue-500 hover:underline">
+            <a href={user.html_url} target="_blank" rel="noopener noreferrer" 
+            className="text-black text-sm bg-gray-100 hover:bg-gray-200 rounded-lg border hover:border-gray-300 border-gray-200 border-1 py-1 px-4">
               View Profile
             </a>
           </div>

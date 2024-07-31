@@ -62,7 +62,8 @@ const ProfileHeader = ({ user }) => {
         </a>
         <hr className="my-6" />
         <div className="mt-4">
-          <h2 className="text-2xl font-semibold text-black mb-2 hover:text-blue-500 hover:underline cursor-pointer">Achievements</h2>
+          <Link to="/achievement" className="text-2xl font-semibold text-black mb-2 hover:text-blue-500 
+          hover:underline cursor-pointer">Achievements</Link>
           <div className="flex flex-row gap-2">
             <div className="flex flex-col items-center">
               <img className="w-16 h-16 rounded-md" src="https://github.githubassets.com/assets/quickdraw-default--light-8f798b35341a.png" alt="Achievement 1" />

@@ -62,7 +62,6 @@ const Footer = () => {
           <div className="mb-4 md:mb-0">
             <Link to="/organisations"
               className="font-semibold text-lg cursor-pointer hover:bg-gray-200 px-4 py-2"
-              to="/organizations"
             >
               Organizations {orgs.length > 0 && <span>{(orgs.length)}</span>}
             </Link>
