@@ -1,4 +1,19 @@
 import React, { useState, useEffect } from 'react';
+import { CiStar } from "react-icons/ci";
+import { RiGitForkLine } from "react-icons/ri";
+
+const languageColors = {
+  'JavaScript': '#f1e05a',
+  'Python': '#800080',
+  'Java': '#b07219',
+  'C++': '#f34b7d',
+  'TypeScript': '#2b7489',
+  'Ruby': '#00FF00',
+  'HTML': '#FF0000',
+  'Jupyter Notebook': '#008000',
+  'PLSQL': '#008000',
+  // Add more languages and colors if needed
+};
 
 const Stars = () => {
   const [stars, setStars] = useState([]);
@@ -30,8 +45,7 @@ const Stars = () => {
     fetchStars();
   }, []);
 
-  const handleSearch = (e) => {
-    e.preventDefault();
+  const handleSearch = () => {
     let filtered = stars;
 
     if (search) {
@@ -65,91 +79,87 @@ const Stars = () => {
     setFilteredStars(filtered);
   };
 
+  useEffect(() => {
+    handleSearch();
+  }, [search, type, language, sort]);
+
   if (loading) return <p>Loading starred repositories...</p>;
   if (error) return <p>Error: {error}</p>;
 
   return (
-    <div className="container mx-auto mt-2 p-4">
-      <form onSubmit={handleSearch} className="flex flex-col md:flex-row items-center mb-4 gap-3">
+    <div className="w-full h-full mx-auto p-6">
+      <div className="flex flex-row gap-6 my-4">
         <input
           type="text"
           placeholder="Search stars"
           value={search}
           onChange={(e) => setSearch(e.target.value)}
-          className="border w-1/2 w-1/2 px-2 py-1 rounded border-gray-200 text-sm mb-0 mr-2"
+          className="border lg:w-1/2 w-full px-2 py-1 rounded border-gray-200 text-sm mb-0 mr-2"
         />
-        <button type="submit" className="text-black text-sm bg-gray-100 hover:bg-gray-200 rounded-lg border hover:border-gray-300 border-gray-200 border-1 py-1 px-4 my-1">Search</button>
-
         <select
           value={type}
           onChange={(e) => setType(e.target.value)}
-          className="text-black bg-gray-100 lg:flex hidden text-sm rounded-lg border hover:bg-gray-200 hover:border-gray-300 border-gray-200 border-1 py-1 my-1"
+          className="lg:flex hidden w-1/6 text-black bg-gray-100 rounded-lg text-sm border hover:bg-gray-200 hover:border-gray-300 border-gray-200 border-1 p-1 my-1"
         >
           <option value="">Type</option>
           <option value="">All</option>
-          <option value="User">Sources</option>
-          <option value="Organization">Forks</option>
-          <option value="Organization">Can be Sponsored</option>
-          <option value="Organization">Mirrors</option>
-          <option value="Organization">Templates</option>
+          <option value="User">User</option>
+          <option value="Organization">Organization</option>
         </select>
         <select
           value={language}
           onChange={(e) => setLanguage(e.target.value)}
-          className="text-black bg-gray-100 rounded-lg lg:flex hidden text-sm border hover:bg-gray-200 hover:border-gray-300 border-gray-200 border-1 py-1 my-1"
+          className="hidden lg:flex w-1/6 text-black bg-gray-100 rounded-lg text-sm border hover:bg-gray-200 hover:border-gray-300 border-gray-200 border-1 p-1 my-1"
         >
           <option value="">Language</option>
-          <option value="C">C</option>
-          <option value="C#">C#</option>
-          <option value="C++">C++</option>
-          <option value="Dockerfile">Dockerfile</option>
-          <option value="HTML">HTML</option>
-          <option value="JavaScript">JavaScript</option>
-          <option value="Jupyter Notebook">Jupyter Notebook</option>
-          <option value="Lua">Lua</option>
-          <option value="Makefile">Makefile</option>
-          <option value="PHP">PHP</option>
-          <option value="Python">Python</option>
-          <option value="Ruby">Ruby</option>
-          <option value="Shell">Shell</option>
-          <option value="TypeScript">TypeScript</option>
-          <option value="Zig">Zig</option>
+          {Array.from(new Set(stars.map(star => star.language).filter(Boolean))).map(lang => (
+            <option key={lang} value={lang}>{lang}</option>
+          ))}
         </select>
         <select
           value={sort}
           onChange={(e) => setSort(e.target.value)}
-          className="text-black bg-gray-100 text-sm lg:flex hidden rounded-lg border hover:bg-gray-200 hover:border-gray-300 border-gray-200 border-1 py-1 my-1"
+          className="hidden lg:flex w-1/6 text-black bg-gray-100 rounded-lg text-sm border hover:bg-gray-200 hover:border-gray-300 border-gray-200 border-1 p-1 my-1"
         >
           <option value="">Sort by</option>
-          <option value="">Recently Starred</option>
           <option value="stars">Most Stars</option>
           <option value="forks">Most Forks</option>
           <option value="updated">Recently Updated</option>
         </select>
-      </form>
-      <hr className="mt-6"/>
+      </div>
+      <hr />
       {filteredStars.length > 0 ? (
-        <div className="grid grid-cols-1 gap-4">
-          {filteredStars.map((star) => (
-            <div key={star.id} className="bg-white p-6 border-gray-200 border-b border-1">
-              <h3 className="text-xl font-semibold mb-2">
-                <a href={star.html_url} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
-                  {star.full_name}
-                </a>
-              </h3>
-              <p className="text-gray-600 text-lg">{star.description}</p>
-              <div className="mt-2 text-gray-500">
-                <span className="mr-4">{star.language}</span>
-                <span className="mr-4">⭐ {star.stargazers_count}</span>
-                <span className="mr-4">🍴 {star.forks_count}</span>
-                <span className="mr-4">updated on {new Date(star.updated_at).toLocaleDateString()}</span>
-              </div>
+        filteredStars.map((star) => (
+          <div key={star.id} className="bg-white p-6 border-gray-200 border-b border-1 mb-4 flex flex-col">
+            <h3 className="text-xl font-semibold mb-2">
+              <a href={star.html_url} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
+                {star.full_name}
+              </a>
+            </h3>
+            <p className="text-gray-600 text-lg">{star.description}</p>
+            <div className="flex flex-wrap gap-2 mt-2">
+              {/* You can add language tags here if needed */}
             </div>
-          ))}
-        </div>
+            <div className="flex items-center mt-2 text-gray-500">
+              <span className="flex items-center mr-4 text-sm">
+                <span className="w-3 h-3 rounded-full mr-1" style={{ backgroundColor: languageColors[star.language] || '#000' }} />
+                {star.language || 'Not specified'}
+              </span>
+              <span className="flex items-center mr-4 text-sm">
+                <CiStar className="text-xl text-gray-800 mr-1" /> {star.stargazers_count}
+              </span>
+              <span className="flex items-center text-sm mr-4">
+                <RiGitForkLine className="text-xl mr-1" /> {star.forks_count}
+              </span>
+              <span className="flex items-center text-sm">
+                Updated on {new Date(star.updated_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+              </span>
+            </div>
+          </div>
+        ))
       ) : (
-        <div className="bg-white p-6 rounded-lg shadow-md">
-          <p>There are no starred repositories matching your criteria.</p>
+        <div className="w-full p-10 shadow-sm border border-1 border-gray-300 bg-white mx-2 rounded-xl text-center">
+          <p className="text-black text-xl font-semibold py-8 md:py-12 lg:py-20">No starred repositories match your criteria.</p>
         </div>
       )}
     </div>

@@ -49,34 +49,34 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row md:justify-between">
           {/* Repositories */}
-          <div className="mb-4 md:mb-0">
-            <Link
-              className="font-semibold text-lg cursor-pointer hover:bg-gray-200 px-4 py-2"
-              to="/repositories"
+          <Link to="/repositories" className="mb-4 md:mb-0 w-full hover:bg-gray-100 p-2">
+            <p
+              className="font-semibold text-lg cursor-pointer px-4 py-2"
+              
             >
-              Repositories {repos.length > 0 && <span className="20"> {(repos.length)}</span>}
-            </Link>
-          </div>
+              Repositories {repos.length > 0 && <span className="ml-2 bg-gray-200 p-1 rounded-full"> {(repos.length)}</span>}
+            </p>
+          </Link>
 
           {/* Organizations */}
-          <div className="mb-4 md:mb-0">
-            <Link to="/organisations"
+          <Link to="/organisations" className="mb-4 md:mb-0 w-full hover:bg-gray-100 p-2">
+            <p 
               className="font-semibold text-lg cursor-pointer px-4 py-2"
             
             >
-              Organizations {orgs.length > 0 && <span className="ml-20">{(orgs.length)}</span>}
-            </Link>
-          </div>
+              Organizations {orgs.length > 0 && <span className="ml-2 bg-gray-200 px-2 py-1 rounded-full">{(orgs.length)}</span>}
+            </p>
+          </Link>
 
           {/* Starred */}
-          <div className="mb-4 md:mb-0">
-            <Link
-              className="font-semibold text-lg cursor-pointer hover:bg-gray-200 px-4 py-2"
-              to="/stars"
+          <Link to="/stars" className="mb-4 md:mb-0 w-full hover:bg-gray-100 p-2">
+            <p
+              className="font-semibold text-lg cursor-pointer px-4 py-2"
+              
             >
-              Starred {stars.length > 0 && <span className="ml-20">{(stars.length)}</span>}
-            </Link>
-          </div>
+              Starred {stars.length > 0 && <span className="ml-2 bg-gray-200 rounded-full p-1">{(stars.length)}</span>}
+            </p>
+          </Link>
         </div>
       </div>
     </footer>

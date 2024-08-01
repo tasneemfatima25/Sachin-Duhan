@@ -1,4 +1,20 @@
 import React, { useState, useEffect } from 'react';
+import { CiStar } from "react-icons/ci";
+import { RiGitForkLine } from "react-icons/ri";
+
+const languageColors = {
+  'JavaScript': '#f1e05a',
+  'Python': '#800080',
+  'Java': '#b07219',
+  'JavaScript': '#00008B',
+  'C++': '#f34b7d',
+  'TypeScript': '#2b7489',
+  'Ruby': '#00FF00',
+  'HTML': '#FF0000',
+  'Jupiter Notebook': '#008000',
+  'PLSQL': '#008000',
+
+};
 
 const RepositoriesList = () => {
   const [repos, setRepos] = useState([]);
@@ -64,9 +80,8 @@ const RepositoriesList = () => {
 
   return (
     <div className="w-full h-full mx-auto p-6">
-      <div className="flex flex-row gap-6  my-4">
-        
-         <input
+      <div className="flex flex-row gap-6 my-4">
+        <input
           type="text"
           placeholder="Find a repository ..."
           value={searchQuery}
@@ -77,13 +92,13 @@ const RepositoriesList = () => {
           <option value="">Types</option>
           <option value="public">All</option>
           <option value="private">Sources</option>
-          <option value="private">Forks</option>
-          <option value="private">Archieved</option>
-          <option value="private">Can be sponsored</option>
-          <option value="private">Mirrors</option>
-          <option value="private">Templates</option>
+          <option value="forks">Forks</option>
+          <option value="archived">Archived</option>
+          <option value="sponsored">Can be sponsored</option>
+          <option value="mirrors">Mirrors</option>
+          <option value="templates">Templates</option>
         </select>
-        <select value={selectedLanguage} onChange={handleLanguageChange} className="hidden lg:flex  w-1/6 text-black bg-gray-100 rounded-lg text-sm border hover:bg-gray-200 hover:border-gray-300 border-gray-200 border-1 p-1 my-1">
+        <select value={selectedLanguage} onChange={handleLanguageChange} className="hidden lg:flex w-1/6 text-black bg-gray-100 rounded-lg text-sm border hover:bg-gray-200 hover:border-gray-300 border-gray-200 border-1 p-1 my-1">
           <option value="">Languages</option>
           {Array.from(new Set(repos.map(repo => repo.language).filter(Boolean))).map(language => (
             <option key={language} value={language}>{language}</option>
@@ -95,15 +110,13 @@ const RepositoriesList = () => {
           <option value="forks">Forks</option>
           <option value="updated">Stars</option>
         </select>
-       
       </div>
       <hr />
       {filteredRepos.length > 0 ? (
         filteredRepos.map((repo) => (
-          <div key={repo.id} className="bg-white p-6 border-gray-200 border-b border-1 mb-4">
+          <div key={repo.id} className="bg-white p-6 border-gray-200 border-b border-1 mb-4 flex flex-col">
             <h3 className="text-xl font-semibold mb-2">
-              <a href={repo.html_url} target="_blank" rel="noopener noreferrer" 
-              className="text-blue-600 hover:underline">
+              <a href={repo.html_url} target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">
                 {repo.name}
               </a>
             </h3>
@@ -115,17 +128,28 @@ const RepositoriesList = () => {
                 </span>
               ))}
             </div>
-            <div className="mt-2 text-gray-500">
-              <span className="mr-4">{repo.language}</span>
-              <span className="mr-4">⭐ {repo.stargazers_count}</span>
-              <span className="mr-4">🍴 {repo.forks_count}</span>
-              <span className="mr-4">Updated on {new Date(repo.updated_at).toLocaleDateString()}</span>
+            <div className="flex items-center mt-2 text-gray-500">
+              <span className="flex items-center mr-4 text-sm">
+                <span className="w-3 h-3 rounded-full mr-1" style={{ backgroundColor: languageColors[repo.language] || '#000' }} />
+                {repo.language}
+              </span>
+              <span className="flex items-center mr-4 text-sm">
+                <CiStar className="text-xl text-gray-800 mr-1" /> {repo.stargazers_count}
+              </span>
+              <span className="flex items-center text-sm mr-4">
+                <RiGitForkLine className="text-xl mr-1" /> {repo.forks_count}
+              </span>
+            
+            <div className="flex flex-col mt-auto text-gray-500 text-sm">
+              <span className="text-gray-600 text-sm">
+                Updated on {new Date(repo.updated_at).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+              </span>
+            </div>
             </div>
           </div>
         ))
       ) : (
-        <div className="w-full p-10 shadow-sm border border-1 border-gray-300 
-        bg-white mx-2 rounded-xl text-center">
+        <div className="w-full p-10 shadow-sm border border-1 border-gray-300 bg-white mx-2 rounded-xl text-center">
           <p className="text-black text-xl font-semibold py-8 md:py-12 lg:py-20">sachin-duhan doesn’t have any repositories that match.</p>
         </div>
       )}

@@ -4,9 +4,11 @@ import PinnedRepos from './PinnedRepos'
 const Overview = () => {
   return (
     <>
-    <section id="overview" className="bg-white p-4 md:p-10 rounded-lg shadow-lg border border-gray-200 lg:my-10 my-6">
+    <section id="overview" className="bg-white p-4 md:p-10 rounded-lg border shadow-hidden border-gray-200 lg:my-10 my-6">
             <div className="flex flex-col md:flex-row items-center md:items-start space-y-4 md:space-y-0 md:space-x-4">
-                <span className="hover:text-blue-500 hover:underline cursor-pointer">sachin-duhan </span>
+                <a href="https://github.com/sachin-duhan/sachin-duhan"
+                   className="hover:text-blue-500 hover:underline cursor-pointer"
+                   >sachin-duhan </a>
                 <span className="font-semibold text-black">/ readme.md</span>
             </div>
             <img 
@@ -14,10 +16,10 @@ const Overview = () => {
                 className="py-4 w-full md:w-auto" 
                 alt="tasneem"
             />
-            <hr className="my-8" />
-            <PinnedRepos />
+            <hr className="my-1" />
         </section>
-
+        <PinnedRepos />
+         
     </>
   )
 }

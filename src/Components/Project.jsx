@@ -1,4 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { VscGithubProject } from "react-icons/vsc";
+
+
+
 
 const Projects = () => {
   const [projects, setProjects] = useState([]);
@@ -43,10 +47,13 @@ const Projects = () => {
         ))}
       </div>
     ) : (
-      <div className="w-full p-10 shadow-sm border border-1 border-gray-300 
-      bg-white mx-2 rounded-xl text-center">
-        <p className="text-black text-xl font-semibold py-8 md:py-12 lg:py-20">There aren't any projects yet</p>
-      </div>
+    <div className="w-full p-16 shadow-sm border border-1 border-gray-300 bg-white mx-2 rounded-xl text-center
+     flex flex-col items-center">
+    <div className="flex flex-col items-center">
+      <VscGithubProject className="text-3xl mb-4 text-gray-500" />
+      <p className="text-black text-xl font-semibold">There aren't any projects yet</p>
+    </div>
+  </div>
     )}
   </div>
   );
