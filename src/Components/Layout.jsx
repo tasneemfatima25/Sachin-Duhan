@@ -2,6 +2,7 @@ import React,{useEffect, useState} from 'react';
 import MainPage from './MainPage'; 
 import ProfileHeader from './ProfileHeader'; 
 import MainContent from './MainContent'; 
+import MainFooter from './MainFooter'; 
 import Footer from './Footer'
 import { Outlet } from 'react-router-dom';
 
@@ -31,6 +32,7 @@ const Layout = () => {
     }, []);
   
   return (
+    <>
     <div className="flex flex-col min-h-screen">
     {/* Navbar */}
     <MainPage />
@@ -53,7 +55,14 @@ const Layout = () => {
        <div className="lg:hidden flex min-h-screen flex-col">
       <Footer />
     </div>
+     {/* main footer */}
+   
 </div>
+
+<div className="flex bg-white p-4">
+<MainFooter />
+</div>
+</>
   );
 };
 

@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { GoRepo } from "react-icons/go";
+import { CiStar } from "react-icons/ci";
+import { GoOrganization } from "react-icons/go";
 
 const Footer = () => {
   const [repos, setRepos] = useState([]);
   const [orgs, setOrgs] = useState([]);
   const [stars, setStars] = useState([]);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchRepos = async () => {
@@ -49,32 +50,32 @@ const Footer = () => {
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row md:justify-between">
           {/* Repositories */}
-          <Link to="/repositories" className="mb-4 md:mb-0 w-full hover:bg-gray-100 p-2">
-            <p
-              className="font-semibold text-lg cursor-pointer px-4 py-2"
-              
-            >
-              Repositories {repos.length > 0 && <span className="ml-2 bg-gray-200 p-1 rounded-full"> {(repos.length)}</span>}
+          <Link to="/repositories" className="mb-4 md:mb-0 w-full hover:bg-gray-100 p-2 flex items-center">
+            <div className="bg-gray-700 text-white rounded-lg p-2 mr-3">
+              <GoRepo size={24} />
+            </div>
+            <p className="font-semibold text-lg">
+              Repositories {repos.length > 0 && <span className="ml-2 bg-gray-200 px-2 py-1 rounded-full">{repos.length}</span>}
             </p>
           </Link>
 
           {/* Organizations */}
-          <Link to="/organisations" className="mb-4 md:mb-0 w-full hover:bg-gray-100 p-2">
-            <p 
-              className="font-semibold text-lg cursor-pointer px-4 py-2"
-            
-            >
-              Organizations {orgs.length > 0 && <span className="ml-2 bg-gray-200 px-2 py-1 rounded-full">{(orgs.length)}</span>}
+          <Link to="/organisations" className="mb-4 md:mb-0 w-full hover:bg-gray-100 p-2 flex items-center">
+            <div className="bg-orange-500 text-white rounded-lg p-2 mr-3">
+              <GoOrganization size={24} />
+            </div>
+            <p className="font-semibold text-lg">
+              Organizations {orgs.length > 0 && <span className="ml-2 bg-gray-200 px-2 py-1 rounded-full">{orgs.length}</span>}
             </p>
           </Link>
 
           {/* Starred */}
-          <Link to="/stars" className="mb-4 md:mb-0 w-full hover:bg-gray-100 p-2">
-            <p
-              className="font-semibold text-lg cursor-pointer px-4 py-2"
-              
-            >
-              Starred {stars.length > 0 && <span className="ml-2 bg-gray-200 rounded-full p-1">{(stars.length)}</span>}
+          <Link to="/stars" className="mb-4 md:mb-0 w-full hover:bg-gray-100 p-2 flex items-center">
+            <div className="bg-yellow-400 text-white rounded-lg p-2 mr-3">
+              <CiStar size={24} />
+            </div>
+            <p className="font-semibold text-lg">
+              Starred {stars.length > 0 && <span className="ml-2 bg-gray-200 rounded-full p-1">{stars.length}</span>}
             </p>
           </Link>
         </div>

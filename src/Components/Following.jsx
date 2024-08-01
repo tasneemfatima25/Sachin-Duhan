@@ -58,8 +58,8 @@ const Following = () => {
     <div className="p-6">
       <div className="grid grid-cols-1 gap-6">
         {following.map((user) => (
-          <div key={user.id} className="bg-white border-b border-gray-200 p-4 flex items-center justify-between">
-            <div className="flex items-center">
+          <div key={user.id} className="bg-white border-b border-gray-200 p-4 flex flex-col items-center justify-between">
+            <div className="flex items-center w-full mb-4">
               <img
                 src={user.avatar_url}
                 alt={user.login}
@@ -71,9 +71,11 @@ const Following = () => {
                 <p className="text-sm text-gray-500">{user.location}</p>
               </div>
             </div>
-            <a href={`https://github.com/${following.login}`} target="_blank"
-             rel="noopener noreferrer" 
-             className="text-black text-sm bg-gray-100 hover:bg-gray-200 rounded-lg border hover:border-gray-300 border-gray-200 border-1 py-1 px-4">
+            <a 
+              href={`https://github.com/${user.login}`} 
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-black text-sm bg-gray-100 hover:bg-gray-200 rounded-lg border hover:border-gray-300 border-gray-200 border-1 py-1 px-4 mt-4">
               Follow
             </a>
           </div>
