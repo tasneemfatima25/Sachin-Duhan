@@ -49,7 +49,6 @@ const Footer = () => {
     <footer className="bg-white text-black border border-1 border-gray-200 py-6 md:hidden">
       <div className="container mx-auto px-4">
         <div className="flex flex-col md:flex-row md:justify-between">
-          {/* Repositories */}
           <Link to="/repositories" className="mb-4 md:mb-0 w-full hover:bg-gray-100 p-2 flex items-center">
             <div className="bg-gray-700 text-white rounded-lg p-2 mr-3">
               <GoRepo size={24} />
@@ -59,7 +58,6 @@ const Footer = () => {
             </p>
           </Link>
 
-          {/* Organizations */}
           <Link to="/organisations" className="mb-4 md:mb-0 w-full hover:bg-gray-100 p-2 flex items-center">
             <div className="bg-orange-500 text-white rounded-lg p-2 mr-3">
               <GoOrganization size={24} />
@@ -69,7 +67,6 @@ const Footer = () => {
             </p>
           </Link>
 
-          {/* Starred */}
           <Link to="/stars" className="mb-4 md:mb-0 w-full hover:bg-gray-100 p-2 flex items-center">
             <div className="bg-yellow-400 text-white rounded-lg p-2 mr-3">
               <CiStar size={24} />

@@ -50,7 +50,6 @@ const PinnedRepos = () => {
         <VscPinned className="mt-1 lg:text-2xl text-xl" />
         <h2 className="lg:text-xl text-lg mb-2">Pinned</h2>
       </div>
-      {/* Container for small screens (horizontal scroll) */}
       <div className="overflow-x-auto lg:overflow-hidden">
         <div className="flex flex-nowrap space-x-6 lg:grid lg:grid-cols-2 lg:gap-6">
           {pinnedItems.map(item => (

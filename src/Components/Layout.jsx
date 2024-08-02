@@ -37,7 +37,6 @@ const Layout = () => {
     {/* Navbar */}
     <MainPage />
 
-    {/* Layout Container */}
     <div className="flex flex-col lg:flex-row flex-1 lg:mt-12 mt-8">
         {/* ProfileHeader */}
         <div className="w-full lg:w-1/3 bg-white p-4 border-b md:border-b-0 md:border-r-0">
@@ -55,9 +54,9 @@ const Layout = () => {
        <div className="lg:hidden flex min-h-screen flex-col">
       <Footer />
     </div>
-     {/* main footer */}
    
 </div>
+     {/* main footer */}
 
 <div className="flex bg-white p-4">
 <MainFooter />

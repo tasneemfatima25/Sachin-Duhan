@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { NavLink } from 'react-router-dom'; // Import NavLink
+import { NavLink } from 'react-router-dom';
 import RepositoriesList from './RepositoriesList';
 import { GoRepo, GoPackage } from "react-icons/go";
 import { IoMdBook } from "react-icons/io";

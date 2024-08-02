@@ -12,7 +12,6 @@ const languageColors = {
   'HTML': '#FF0000',
   'Jupyter Notebook': '#008000',
   'PLSQL': '#008000',
-  // Add more languages and colors if needed
 };
 
 const Stars = () => {
@@ -138,7 +137,6 @@ const Stars = () => {
             </h3>
             <p className="text-gray-600 text-lg">{star.description}</p>
             <div className="flex flex-wrap gap-2 mt-2">
-              {/* You can add language tags here if needed */}
             </div>
             <div className="flex items-center mt-2 text-gray-500">
               <span className="flex items-center mr-4 text-sm">
